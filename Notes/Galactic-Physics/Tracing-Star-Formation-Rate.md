@@ -2,7 +2,9 @@
 prev: 
     text: "Simple Stellar Populations"
     link: "/Notes/Galactic-Physics/Simple-Stellar-Populations"
-next: false
+next: 
+    text: "Radiative feedback matters for the initial mass function of metal-poor stars"
+    link: "/Notes/Galactic-Physics/Radiative-feedback-matters-for-the-initial-mass-function-of-metal-poor-stars"
 ---
 
 # Tracing Star Formation Rate

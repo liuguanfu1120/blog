@@ -13,3 +13,5 @@ next:
 ### Some hightlights in 2023
 
 - [2023-11-21, Two-phase formation by Houjun Mo](/Colloquium/2023/2023-11-21-Two-phase-formation-by-Houjun-Mo.md)
+
+## [2024](2024/index.md)

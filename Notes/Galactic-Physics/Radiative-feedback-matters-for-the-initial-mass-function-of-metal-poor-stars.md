@@ -94,7 +94,7 @@ For the extremely low metallicity ($\text{[Z/H]}=-4$), the star formation histor
 - 1. Epoch A: The star formation sequence is distinct from the solar metallicity case. Since the metallicity is extremely low, the cooling is inefficient and the temperature is high, which eliminates the fine structure created by initial turbulence.
 The structure of the gas is more core-like and no filamentary structure is formed.
 Therefore, stars are formed within such a small cloud core, some of which may be ejected due to the gravitational interaction with other stars.
-- 2. Epoch B: Star formation is suppressed by stellar feedback and the HII region expands. In addition, the expansion of an $H_2$ photo-dissociation region (PDR) is also important for the suppression of star formation.
+- 2. Epoch B: Star formation is suppressed by stellar feedback and the HII region expands. In addition, the expansion of an $\text{H}_2$ photo-dissociation region (PDR) is also important for the suppression of star formation.
 - 3. Epoch C: Since the massive stars can be ejected to an outer region, the HII region expands and suppresses the star formation at the outer region. Such an ejection of massive stars is more common for the extremely low metallicity case, as the stars tend to be more concentrated in the center initially.
 - 4. Epoch D: The star-forming gas is completely depleted and the star formation is terminated.
 
@@ -117,8 +117,8 @@ The heating of dust grains by stellar radiation hinders the fragmentation of the
 Illustrated by Figure 4, dust heating leaves little effect on the pc-scale filamentary structure.
 However, stellar irradiation heats the gas inside the filamentary structure to several thousand K, which suppresses the fragmentation of the gas cloud at a small scale.
 Such a suppression of fragmentation at a small scale leads to a decrease in the number of low-mass stars.
-Taking no stellar feedback into consideration, the number fraction of low-mass stars with masses smaller than $1~M_{\odot}$ is larger than 0.5, which is shown in green lines in Figure 6(a).
-However, the number fraction of low-mass stars is reduced to $\sim 0.3$ when the stellar feedback is included, which is shown in red lines in Figure 6(a).
+Taking no stellar feedback into consideration, the number fraction of low-mass stars with masses smaller than $1~M_{\odot}$ is larger than 0.5, which is shown in green lines in Figure 5(a).
+However, the number fraction of low-mass stars is reduced to $\sim 0.3$ when the stellar feedback is included, which is shown in red lines in Figure 5(a).
 This kind of reduction is significant for all metallicities.
 
 <figure style="text-align: left;">
@@ -135,14 +135,14 @@ This kind of reduction is significant for all metallicities.
 ## Photoionization: hindrance of growth of massive stars
 
 Photoionization is another important mechanism for radiative feedback, which has a substantial impact on the formation of massive stars, especially for the higher metallicities $\text{[Z/H]}\gtrsim -2$.
-The mass fraction of massive stars with $M_{*}>10~M_{\odot}$ is much larger at the higher metallicities $\text{[Z/H]}\gtrsim -2$ when the photoionization is excluded, which is shown in yellow lines in Figure 6(b).
+The mass fraction of massive stars with $M_{*}>10~M_{\odot}$ is much larger at the higher metallicities $\text{[Z/H]}\gtrsim -2$ when the photoionization is excluded, which is shown in yellow lines in Figure 5(b).
 When the metallicities are higher, there are more massive stars and these massive stars tend to form in isolated small cores with smaller discs. Therefore the HII region can expand more easily and suppress the accretion onto the massive stars.
 
 <figure style="text-align: left;">
   <img src="./Radiative-feedback-matters-for-the-initial-mass-function-of-metal-poor-stars-fig/Fig6.png" alt="Fig6" style="display: block; margin: 0 auto; width: 120%; height: auto;">
   <figcaption>
  
- <strong>Figure 6: </strong> The cumulative number (mass) fraction of stars with masses below $M_{*}$ is shown in the upper (lower) panel. The red lines indicate the runs with stellar feedback, while the green lines show the cases without any stellar feedback. The yellow lines are the runs with stellar feedback except for the photoionization.
+ <strong>Figure 5: </strong> The cumulative number (mass) fraction of stars with masses below $M_{*}$ is shown in the upper (lower) panel. The red lines indicate the runs with stellar feedback, while the green lines show the cases without any stellar feedback. The yellow lines are the runs with stellar feedback except for the photoionization.
  The corresponding values for the Chabrier IMF are represented by the black dashed lines, with the shaded region indicating the $1\sigma$ uncertainty.
  <em> Adapted from Figure 13 in Chon et al. 2023.</em>
 
@@ -152,16 +152,16 @@ When the metallicities are higher, there are more massive stars and these massiv
 ## The overall shape of the IMF
 
 Since the radiative feedback has a significant impact on the formation of stars, with the dust heating suppressing the formation of low-mass stars and the photoionization suppressing the formation of massive stars, the overall shape of the IMF is changed.
-Figure 7 shows the stellar mass distributions at the end of simulations for different metallicities with $\text{[Z/H]} = 0$, $−1$, $−2$, $−3$, and $−4$ from left to right.
-Comparing the upper and the bottom panels in Figure 7, it is evident that the radiative feedback has a more significant impact on the IMF at lower metallicities.
-Including the photoionization, the number fraction of massive stars with $M_{*}>10~M_{\odot}$ is reduced, especially for the higher metallicities $\text{[Z/H]}\gtrsim -2$, which is shown in the middle and bottom rows in Figure 7.
-The number of low-mass stars with $M_{*}<1~M_{\odot}$ is also reduced when taking dust heating into account, which is shown in the upper and middle rows in Figure 7.
+Figure 6 shows the stellar mass distributions at the end of simulations for different metallicities with $\text{[Z/H]} = 0$, $−1$, $−2$, $−3$, and $−4$ from left to right.
+Comparing the upper and the bottom panels in Figure 6, it is evident that the radiative feedback has a more significant impact on the IMF at lower metallicities.
+Including the photoionization, the number fraction of massive stars with $M_{*}>10~M_{\odot}$ is reduced, especially for the higher metallicities $\text{[Z/H]}\gtrsim -2$, which is shown in the middle and bottom rows in Figure 6.
+The number of low-mass stars with $M_{*}<1~M_{\odot}$ is also reduced when taking dust heating into account, which is shown in the upper and middle rows in Figure 6.
 
 <figure style="text-align: left;">
   <img src="./Radiative-feedback-matters-for-the-initial-mass-function-of-metal-poor-stars-fig/Fig7.png" alt="Fig7" style="display: block; margin: 0 auto; width: 120%; height: auto;">
   <figcaption>
 
- <strong>Figure 7: </strong> The stellar mass distributions at the end of simulations for different metallicities with $\text{[Z/H]} = 0$, $−1$, $−2$, $−3$, and $−4$ from left to right.
+ <strong>Figure 6: </strong> The stellar mass distributions at the end of simulations for different metallicities with $\text{[Z/H]} = 0$, $−1$, $−2$, $−3$, and $−4$ from left to right.
  The cases without feedback, with feedback but no photoionization, and with feedback are shown in the top, middle, and bottom panels, respectively.
 <em> Adapted from Figure 12 in Chon et al. 2023.</em>
 

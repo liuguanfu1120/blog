@@ -10,7 +10,8 @@ git add .
 git commit -m "first commit"
 git branch -m master main
 git remote add origin [<repository_URL>]
-git remote add origin https://github.com/liuguanfu1120/blog
+# such as:
+# git remote add origin https://github.com/liuguanfu1120/blog
 git push -u origin main
 ```
 

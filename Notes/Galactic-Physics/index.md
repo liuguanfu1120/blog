@@ -3,7 +3,9 @@ prev:
     text: 'Random notes'
     link: '/Notes/Random/index'
 
-next: false
+next: 
+    text: 'X-ray Observations'
+    link: '/Notes/X-ray-Observations/index'
 --- 
 
 # Galactic Physics index

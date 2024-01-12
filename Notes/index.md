@@ -9,3 +9,5 @@ next: false  # TBD
 ## [Random notes](Random/index.md)
 
 ## [Galactic Physics](Galactic-Physics/index.md)
+
+## [X-ray Observations](X-ray-Observations/index.md)

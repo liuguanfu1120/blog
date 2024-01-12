@@ -47,6 +47,7 @@ export default defineConfig({
         items: [
           { text: 'Random', link: '/Notes/Random/index' },
           { text: 'Galactic Physics', link: '/Notes/Galactic-Physics/index' },
+          { text: 'X-ray Observations', link: '/Notes/X-ray-Observations/index' }
         ]
       },
     ],

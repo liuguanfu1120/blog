@@ -1,6 +1,8 @@
 ---
 prev: false
-next: false
+next: 
+    text: "Corrected AIC for X-ray model fitting"
+    link: "/Notes/X-ray-Observations/Corrected-AIC-for-X-ray-model-fitting"
 ---
 # How to use RMF?
 

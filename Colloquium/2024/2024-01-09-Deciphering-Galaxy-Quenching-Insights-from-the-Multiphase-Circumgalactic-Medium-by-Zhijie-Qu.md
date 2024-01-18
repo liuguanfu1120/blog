@@ -2,7 +2,9 @@
 prev: 
     text: "Stellar Populations and Assembly Histories of Early-type Galaxies Near and Far"
     link: "/Colloquium/2024/2024-01-08-Stellar-Populations-and-Assembly-Histories-of-Early-type-Galaxies-Near-and-Far-by-Meng-Gu"
-next: false
+next: 
+    text: "NIHAO-GIZMO: A Comparison of Simulated Disc Galaxies from GASOLINE and GIZMO"
+    link: "/Colloquium/2024/2024-01-17-NIHAO-GIZMO-A-Comparison-of-Simulated-Disc-Galaxies-from-GASOLINE-and-GIZMO"
 ---
 # Deciphering Galaxy Quenching: Insights from the Multiphase Circumgalactic Medium
 

@@ -97,8 +97,7 @@ The corresponding $\mathrm{AIC}_{c}$ is
 $$
     \mathrm{AIC}_{c}=C_{\mathrm{min}} + 2k + \frac{2k(k+1)}{N-k-1} \qquad \mathrm{for } ~\mathrm{C-statistics.}
 $$
-As for the calculation of $\mathrm{AIC}_{c}$, the first term should be $\chi^{2}_{\mathrm{min}}$ if $\chi^{2}$ fitting is used, while it should be $C_{\mathrm{min}}$ if C-statistics fitting is implemented ([Ng et al. 2022](https://iopscience.iop.org/article/10.3847/1538-4357/ac9965); [Peca et al. 2023](https://iopscience.iop.org/article/10.3847/1538-4357/acac28);
-[Rogantini et al. 2019](https://www.aanda.org/10.1051/0004-6361/201935883); [Igoshev et al. 2018](https://iopscience.iop.org/article/10.3847/1538-4357/aadd93)).
+As for the calculation of $\mathrm{AIC}_{c}$, the first term should be $\chi^{2}_{\mathrm{min}}$ if $\chi^{2}$ fitting is used, while it should be $C_{\mathrm{min}}$ if C-statistics fitting is implemented ([Peca et al. 2023](https://iopscience.iop.org/article/10.3847/1538-4357/acac28); [Ng et al. 2022](https://iopscience.iop.org/article/10.3847/1538-4357/ac9965); [Rogantini et al. 2019](https://www.aanda.org/10.1051/0004-6361/201935883); [Igoshev et al. 2018](https://iopscience.iop.org/article/10.3847/1538-4357/aadd93)).
 
 For a given model, its $\Delta \mathrm{AIC}_{c}$ is defined as the relative difference of  $\mathrm{AIC}_{c}$ between the minimum $\mathrm{AIC}_{c}$, which reads,
 $$

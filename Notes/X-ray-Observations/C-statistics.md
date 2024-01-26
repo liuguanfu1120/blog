@@ -12,6 +12,7 @@ C-statistics is based on Poisson likelihood:
 $$
     L(M)=\prod_i \frac{M_i^{D_i}}{D_{i} !} \exp \left(-M_i\right)
 $$
+where $L(M)$ is the likelihood for the model $M$, $D_{i}$ is the data in $i$th bin, $M_{i}$ denotes the model prediction in $i$th bin.
 Taking its logarithm and multiplying by $-2$, we can get
 $$
     -2\ln L(M) = 2\sum_{i} (M_{i}-D_{i}\ln M_{i}+\ln(D_{i}!)).

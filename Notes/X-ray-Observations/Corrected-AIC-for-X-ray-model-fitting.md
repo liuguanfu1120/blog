@@ -2,9 +2,9 @@
 prev: 
     text: "How to use RMF"
     link: "/Notes/X-ray-Observations/How-to-use-RMF"
-next: false
-    # text: "text to show"
-    # link: "/absolute/path"
+next: 
+    text: "C-statistics"
+    link: "/Notes/X-ray-Observations/C-statistics"
 ---
 
 # Corrected AIC for X-ray model fitting
@@ -66,6 +66,7 @@ $$
     \mathrm{AIC}_{c}=\chi^{2}_{\mathrm{min}} + 2k + \frac{2k(k+1)}{N-k-1} \qquad \mathrm{for } ~\chi^{2} ~\mathrm{statistics.}
 $$
 
+
 ### C-statistics
 
 For statistics based on Poisson likelihood:
@@ -84,7 +85,7 @@ Approximating the factorial term by [Stirling's formula](https://en.wikipedia.or
 $$
     \ln(D_{i}!) \approx D_{i}\ln D_{i} - D_{i},
 $$
-a modification of the original Cash-statistic (C-statistics) can be obtained
+a modification of the original Cash-statistic, C-statistics, can be obtained as follows:
 $$
     C = 2\sum_{i}(M_{i}-D_{i}\ln M_{i}+D_{i}\ln D_{i} - D_{i}),
 $$

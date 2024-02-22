@@ -31,7 +31,7 @@ From [Matplotlib Cheatsheet](https://matplotlib.org/cheatsheets/):
 
 ![Anatomy of a figure](./Matplotlib-fig/anatomy.png)
 
-Many people just use `plt.plot(x, y)`, which will create a figure and axes automatically. However, it is better to use `fig, ax = plt.subplots()` to create a figure and axes explicitly. This is because it is easier to understand and control the figures and axes. For example, you can add a second axes to the figure by using `fig.add_axes()` or `fig.add_subplot()`. You can also add a color bar to the figure by using `fig.colorbar()`.
+Many people just use `plt.plot(x, y)`, which will create a figure and axes automatically. However, it is better to use `fig, ax = plt.subplots()` to create a figure and axes explicitly. This is because it is easier to understand and control the figures and axes. For example, you can add second axes to the figure by using `fig.add_axes()` or `fig.add_subplot()`. You can also add a color bar to the figure by using `fig.colorbar()`.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -288,7 +288,328 @@ ax.set_zlabel("z")
 plt.show()
 ```
 
-## 5. More information
+## 5. Redshift and age (look-back time) axes
+
+It is common that we need to plot a figure with the major x-axis representing redshift while the secondary one is the look-back time or age.
+
+```python
+# -*- coding: utf-8 -*-
+"""
+@Author: Guan-Fu Liu
+Created on Oct. 14, 2023
+Last modified on Oct. 14, 2023
+
+A simple example to show how to plot redshift in the bottom x-axis and time in the top x-axis.
+"""
+import numpy as np
+import matplotlib.pyplot as plt
+from astropy.cosmology import FlatLambdaCDM
+from astropy import units as u
+from astropy.cosmology import z_at_value
+%matplotlib widget
+
+cosmo = FlatLambdaCDM(H0=70*u.km/u.s/u.Mpc, Om0=0.3)
+```
+```python
+def evolve(z, w, Omega0):
+    """
+    Return the evolution of radiation, matter, and dark energy densities
+
+    Parameters
+    ----------
+    z : array
+        Redshift
+    w : float
+        w = -1 for cosmological constant, w = 0 for matter, w = 1/3 for radiation.
+    Omega0 : float
+        Present-day value of the density parameter
+    """
+    y = Omega0*(1+z)**(3*(1+w))
+    return y
+
+
+def zp1_to_age(zp1):
+    """
+    Return to the age of the universe at redshift+1
+
+    Parameters
+    ----------
+    z : float
+        Redshift+1
+    """
+    y = np.array(zp1, float)
+    mask = zp1 < 1  # Mask the negative redshift
+    y[mask] = np.inf
+    if mask.sum() == len(y):
+        return y
+    else:
+        y[~mask] = cosmo.age(zp1[~mask]-1).value
+    return y
+
+
+def age_to_zp1(age):
+    """
+    Return to the redshift+1 at age of the universe
+
+    Parameters
+    ----------
+    age : float
+        Age of the universe
+    """
+    y = np.array(age, float)
+    mask_max = age > 13.4
+    y[mask_max] = 0
+    mask_min = age < 1e-4
+    # z_at_value cannot handle age > 13.4 Gyr and age < 1e-4 Gyr.
+    # It depends on how you set the zmin and zmax.
+    y[mask_min] = np.inf
+    mask = mask_max | mask_min
+    if mask.sum() == len(y):
+        return y
+    else:
+        y[~mask] = z_at_value(cosmo.age, age[~mask]*u.Gyr, zmin=1e-9, zmax=2000)+1
+    return y
+
+
+def z_to_back(z):
+    """
+    Return to the look-back time of the universe at redshift
+
+    Parameters
+    ----------
+    z : float
+        Redshift
+    """
+    y = np.array(z, float)
+    mask = z < 0  # Mask the negative redshift
+    y[mask] = 0
+    if mask.sum() == len(y):
+        return y
+    else:
+        y[~mask] = cosmo.age(0).value-cosmo.age(z[~mask]).value
+    return y
+
+
+def back_to_z(back):
+    """
+    Return to the redshift at look-back time of the universe
+
+    Parameters
+    ----------
+    back : float
+        Look back time of the universe
+    """
+    y = np.array(back, float)
+    mask_min = back < cosmo.age(0).value-13.4
+    y[mask_min] = 0
+    mask_max = back > cosmo.age(0).value-1e-4
+    # z_at_value cannot handle age > 13.4 Gyr and age < 1e-4 Gyr.
+    # It depends on how you set the zmin and zmax.
+    y[mask_max] = np.inf
+    mask = mask_max | mask_min
+    if mask.sum() == len(y):
+        return y
+    else:
+        y[~mask] = z_at_value(cosmo.age, (cosmo.age(0).value-back[~mask])*u.Gyr, zmin=1e-9, zmax=2000)
+    return y
+
+
+def z_to_age(z):
+    """
+    Return to the age of the universe at redshift z.
+
+    Parameters
+    ----------
+    z : float
+        Redshift
+    """
+    y = np.array(z, float)
+    mask = z < 0  # Mask the negative redshift
+    y[mask] = np.inf
+    if mask.sum() == len(y):
+        return y
+    else:
+        y[~mask] = cosmo.age(z[~mask]).value
+    return y
+
+
+def age_to_z(age):
+    """
+    Return to the redshift at age of the universe
+
+    Parameters
+    ----------
+    age : float
+        Age of the universe
+    """
+    y = np.array(age, float)
+    mask_max = age > 13.4
+    y[mask_max] = 0
+    mask_min = age < 1e-4
+    # z_at_value cannot handle age > 13.4 Gyr and age < 1e-4 Gyr.
+    # It depends on how you set the zmin and zmax.
+    y[mask_min] = np.inf
+    mask = mask_max | mask_min
+    if mask.sum() == len(y):
+        return y
+    else:
+        y[~mask] = z_at_value(cosmo.age, age[~mask]*u.Gyr, zmin=1e-9, zmax=2000)
+    return y
+```
+```python
+z = np.linspace(0.01, 100, 1000)
+OmegaDE = evolve(z, -1, 0.7)  # Planck 2018
+OmegaM = evolve(z, 0, 0.3158)  # Planck 2018
+OmeagaR = evolve(z, 1/3, 9.29e-5)  # Planck 2013
+OmegaDE1 = evolve(z, -1+0.02, 0.7)
+OmegaDE2 = evolve(z, -1-0.02, 0.7)
+```
+```python
+fig, ax = plt.subplots()
+ax.plot(1+z, OmegaDE, '-', label=r'$\Omega_{\Lambda},\omega=-1$')
+ax.plot(1+z, OmegaM, '-.,', label=r'$\Omega_{m}$')
+# ax.plot(1+z, OmeagaR, '--',label=r'$\Omega_{r}$')
+ax.loglog()
+ax.fill_between(1+z, OmegaDE1, OmegaDE2, alpha=0.5, label=r'$\Omega_{\Lambda}$, $\omega\in [-0.98, -1.02]$')
+ax.fill_betweenx(np.logspace(-2, 6, 100), 1.5+1, 4.5+1, alpha=0.5, color='grey', label='Stage V')
+
+major_xticks = np.array([1, 10, 100, 1000])
+ax.set_xticks(major_xticks, minor=False)
+minor_xticks = np.array([2, 3, 4, 5, 6, 7, 8, 9, 20, 30, 40, 50, 60, 70, 80, 90])
+ax.set_xticks(minor_xticks, minor=True)
+ax.set_xticklabels([' ']*len(minor_xticks), minor=True)
+minor_yticks = np.logspace(-4, 2, 2)
+ax.set_yticks(minor_yticks, minor=True)
+ax.set_yticklabels([' ']*len(minor_yticks), minor=True)
+ax.tick_params(axis='x', which='major', direction='in', length=6.0, width=1.0)
+ax.tick_params(axis='x', which='minor', direction='in', length=3.0, width=1.0)
+ax.tick_params(axis='y', which='major', direction='in', length=4.0, width=1.0)
+ax.tick_params(axis='y', which='minor', direction='in', length=2.0, width=1.0)
+
+secax = ax.secondary_xaxis('top', functions=(zp1_to_age, age_to_zp1))
+major_xticks1 = zp1_to_age(np.array([1.2, 2, 4, 10, 40, 100]))
+secax.set_xticks(major_xticks1, minor=False)
+secax.set_xticklabels(['%.2f'%i for i in major_xticks1], minor=False)
+minor_xticks1 = zp1_to_age(minor_xticks)
+secax.set_xticks(minor_xticks1, minor=True)
+secax.set_xticklabels([' ']*len(minor_xticks1), minor=True)
+secax.set_xlabel('Age [Gyr]')
+secax.tick_params(axis='x', which='major', direction='in', length=6.0, width=1.0)
+secax.tick_params(axis='x', which='minor', direction='in', length=3.0, width=1.0)
+
+ax.set_xlim(1.1, 1.2e2)
+ax.set_ylim(1e-2, 1e5)
+ax.set_xlabel('$1+z$')
+ax.set_ylabel(r'$\Omega(z)$')
+ax.legend(loc=(0.4, 0.3))
+fig.savefig('Omega.png')
+plt.show()
+```
+The output figure is:
+![](./Matplotlib-fig/Omega.png)
+
+```python
+fig, ax = plt.subplots()
+ax.plot(z, OmegaDE, '-', label=r'$\Omega_{\Lambda},\omega=-1$')
+ax.plot(z, OmegaM, '-.,', label=r'$\Omega_{m}$')
+ax.loglog()
+ax.fill_between(1+z, OmegaDE1, OmegaDE2, alpha=0.5, label=r'$\Omega_{\Lambda}$, $\omega\in [-0.98, -1.02]$')
+
+ax.fill_betweenx(np.logspace(-2, 6, 100), 1.5, 4.5, alpha=0.5, color='grey', label='Stage V')
+
+major_xticks = np.array([0.01, 0.1, 1, 10, 100])
+ax.set_xticks(major_xticks, minor=False)
+minor_xticks = np.array([0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,
+                         0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9,
+                         2, 3, 4, 5, 6, 7, 8, 9, 
+                         20, 30, 40, 50, 60, 70, 80, 90])
+ax.set_xticks(minor_xticks, minor=True)
+ax.set_xticklabels([' ']*len(minor_xticks), minor=True)
+minor_yticks = np.logspace(-4, 2, 2)
+ax.set_yticks(minor_yticks, minor=True)
+ax.set_yticklabels([' ']*len(minor_yticks), minor=True)
+ax.tick_params(axis='x', which='major', direction='in', length=6.0, width=1.0)
+ax.tick_params(axis='x', which='minor', direction='in', length=3.0, width=1.0)
+ax.tick_params(axis='y', which='major', direction='in', length=4.0, width=1.0)
+ax.tick_params(axis='y', which='minor', direction='in', length=2.0, width=1.0)
+
+secax = ax.secondary_xaxis('top', functions=(z_to_back, back_to_z))
+major_xticks1 = z_to_back(np.array([0.01, 0.04,
+                                   0.1, 0.4, 
+                                   1, 4, 
+                                   10, 40, 100]))
+secax.set_xticks(major_xticks1, minor=False)
+secax.set_xticklabels(['%.1f'%i for i in major_xticks1], minor=False)
+minor_xticks1 = z_to_back(minor_xticks)
+secax.set_xticks(minor_xticks1, minor=True)
+secax.set_xticklabels([' ']*len(minor_xticks1), minor=True)
+secax.set_xlabel('Look-back time [Gyr]')
+secax.tick_params(axis='x', which='major', direction='in', length=6.0, width=1.0)
+secax.tick_params(axis='x', which='minor', direction='in', length=3.0, width=1.0)
+
+ax.set_xlim(0.009, 109)
+ax.set_ylim(1e-2, 1e5)
+ax.set_xlabel('$z$')
+ax.set_ylabel(r'$\Omega(z)$')
+ax.legend(loc=(0.1, 0.6))
+fig.savefig('Omega-z.png')
+plt.show()
+```
+The output figure is:
+![](./Matplotlib-fig/Omega-z.png)
+
+```python
+fig, ax = plt.subplots()
+ax.plot(z, OmegaDE, '-', label=r'$\Omega_{\Lambda},\omega=-1$')
+ax.plot(z, OmegaM, '-.,', label=r'$\Omega_{m}$')
+ax.loglog()
+ax.fill_between(1+z, OmegaDE1, OmegaDE2, alpha=0.5, label=r'$\Omega_{\Lambda}$, $\omega\in [-0.98, -1.02]$')
+
+ax.fill_betweenx(np.logspace(-2, 6, 100), 1.5, 4.5, alpha=0.5, color='grey', label='Stage V')
+
+major_xticks = np.array([0.01, 0.1, 1, 10, 100])
+ax.set_xticks(major_xticks, minor=False)
+minor_xticks = np.array([0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,
+                         0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9,
+                         2, 3, 4, 5, 6, 7, 8, 9, 
+                         20, 30, 40, 50, 60, 70, 80, 90])
+ax.set_xticks(minor_xticks, minor=True)
+ax.set_xticklabels([' ']*len(minor_xticks), minor=True)
+minor_yticks = np.logspace(-4, 2, 2)
+ax.set_yticks(minor_yticks, minor=True)
+ax.set_yticklabels([' ']*len(minor_yticks), minor=True)
+ax.tick_params(axis='x', which='major', direction='in', length=6.0, width=1.0)
+ax.tick_params(axis='x', which='minor', direction='in', length=3.0, width=1.0)
+ax.tick_params(axis='y', which='major', direction='in', length=4.0, width=1.0)
+ax.tick_params(axis='y', which='minor', direction='in', length=2.0, width=1.0)
+
+secax = ax.secondary_xaxis('top', functions=(z_to_age, age_to_z))
+major_xticks1 = z_to_age(np.array([0.01, 0.04,
+                                   0.1, 0.4, 
+                                   1, 4, 
+                                   10, 40, 100]))
+secax.set_xticks(major_xticks1, minor=False)
+secax.set_xticklabels(['%.1f'%i for i in major_xticks1], minor=False)
+minor_xticks1 = z_to_age(minor_xticks)
+secax.set_xticks(minor_xticks1, minor=True)
+secax.set_xticklabels([' ']*len(minor_xticks1), minor=True)
+secax.set_xlabel('Age [Gyr]')
+secax.tick_params(axis='x', which='major', direction='in', length=6.0, width=1.0)
+secax.tick_params(axis='x', which='minor', direction='in', length=3.0, width=1.0)
+
+ax.set_xlim(0.009, 109)
+ax.set_ylim(1e-2, 1e5)
+ax.set_xlabel('$z$')
+ax.set_ylabel(r'$\Omega(z)$')
+ax.legend(loc=(0.1, 0.6))
+fig.savefig('Omega-t.png')
+plt.show()
+```
+The output figure is
+![](./Matplotlib-fig/Omega-t.png)
+
+
+## 6. More information
 
 ```python
 %matplotlib ipympl
@@ -296,7 +617,7 @@ plt.show()
 This line is used to enable the interactive mode in Jupyter notebook embedded in VSCode. If you are using Jupyter notebook, you can use `%matplotlib notebook` or `%matplotlib widget` to enable the interactive mode.
 
 More details about the backend of matplotlib can be found in the website [backends](https://matplotlib.org/stable/users/explain/figure/backends.html).
-If you are a beginner of matplotlib, you can find more information[here](https://matplotlib.org/stable/tutorials/introductory/usage.html).
+If you are a beginner of matplotlib, you can find more information [here](https://matplotlib.org/stable/tutorials/introductory/usage.html).
 
 There is also a well-structured and open-source book for scientific visualization, that is 
 [Scientific Visualization: Python + Matplotlib](https://github.com/rougier/scientific-visualization-book)

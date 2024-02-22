@@ -1,10 +1,10 @@
 ---
 prev:
-    text: 'Plot secondary axes with Matplotlib'
-    link: '/Code/Python/Secondary-Axes'
-next: 
-    text: 'Use matplotlib elegantly'
+    text: 'More tips about Matplotlib'
     link: '/Code/Python/Matplotlib'
+next: 
+    text: 'Numpy tips'
+    link: '/Code/Python/Numpy'
 ---
 
 # Pandas tips

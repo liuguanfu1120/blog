@@ -18,10 +18,14 @@ next:
 You may need to let the bottom x-axis show the frequency and the top one display the wavelength, which this Python script can help.
 
 
-[More tips](Matplotlib.md)
+[More tips about Matplotlib](Matplotlib.md)
 
 ## Pandas tips
 
 [Pandas tips](Pandas.md)
+
+## Numpy tips
+
+[Numpy tips](Numpy.md)
 
 

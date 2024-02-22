@@ -3,8 +3,8 @@ prev:
   text: 'Pass complex number between Python and Fortran'
   link: '/Code/Python/Python-Fortran-Z'
 next: 
-  text: 'Pandas tips'
-  link: '/Code/Python/Pandas'
+  text: 'More tips about Matplotlib'
+  link: '/Code/Python/Matplotlib'
 # TBD
 ---
 # How to plot a secondary axis with Matplotlib

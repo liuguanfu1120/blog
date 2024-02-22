@@ -1,8 +1,10 @@
 ---
 prev: 
+    text: "Plot secondary axes with Matplotlib"
+    link: "/Code/Python/Secondary-Axes"
+next: 
     text: "Pandas tips"
     link: "/Code/Python/Pandas"
-next: false
 ---
 # Matplotlib tips
 
@@ -22,7 +24,9 @@ The example provided can be used to achieve the following goals:
 
 
 ## 1.1 Why "fig, ax = plt.subplots()"?
+
 ### The anatomy of a figure
+
 From [Matplotlib Cheatsheet](https://matplotlib.org/cheatsheets/):
 
 ![Anatomy of a figure](./Matplotlib-fig/anatomy.png)
@@ -293,3 +297,7 @@ This line is used to enable the interactive mode in Jupyter notebook embedded in
 
 More details about the backend of matplotlib can be found in the website [backends](https://matplotlib.org/stable/users/explain/figure/backends.html).
 If you are a beginner of matplotlib, you can find more information[here](https://matplotlib.org/stable/tutorials/introductory/usage.html).
+
+There is also a well-structured and open-source book for scientific visualization, that is 
+[Scientific Visualization: Python + Matplotlib](https://github.com/rougier/scientific-visualization-book)
+

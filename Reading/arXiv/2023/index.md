@@ -1,6 +1,8 @@
 ---
 prev: false
-next: false
+next: 
+    text: "2024"
+    link: "/Reading/arXiv/2024/index"
 ---
 
 # arXiv reading in 2023

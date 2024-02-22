@@ -9,20 +9,19 @@ next:
 # Python index
 
 ## Connection between Python and Fortran
-
-[Pass complex number between Python and Fortran](Python-Fortran-Z.md)
+[Pass complex ](Python-Fortran-Z.md)numbers[ between Python](Python-Fortran-Z.md) and Fortran](Python-Fortran-Z.md)
 
 ## Matplotlib tips
 
 [Plot secondary axes with Matplotlib](Secondary-Axes.md)
 
-You may need to let the botttom x-axis show the frequency and the top one display the wavelength, which this Python script can help.
+You may need to let the bottom x-axis show the frequency and the top one display the wavelength, which this Python script can help.
 
+
+[More tips](Matplotlib.md)
 
 ## Pandas tips
 
 [Pandas tips](Pandas.md)
 
-## Use matplotlib elegantly
 
-[Use matplotlib elegantly](Matplotlib.md)

@@ -66,7 +66,6 @@ $$
     \mathrm{AIC}_{c}=\chi^{2}_{\mathrm{min}} + 2k + \frac{2k(k+1)}{N-k-1} \qquad \mathrm{for } ~\chi^{2} ~\mathrm{statistics.}
 $$
 
-
 ### C-statistics
 
 For statistics based on Poisson likelihood:

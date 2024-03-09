@@ -1,9 +1,12 @@
 ---
 prev:
-    text:'Electromagnetic Spectrum'
-    link:'/Notes/Random/Electromagnetic-Spectrum'
-next: false
+    text: "Electromagnetic Spectrum"
+    link: "/Notes/Random/Electromagnetic-Spectrum"
+next: 
+    text: "Schematics of Astronomy"
+    link: "/Notes/Random/Schematics-Astronomy"
 ---
+
 # Reverberation Mapping
 
 ## Basic idea

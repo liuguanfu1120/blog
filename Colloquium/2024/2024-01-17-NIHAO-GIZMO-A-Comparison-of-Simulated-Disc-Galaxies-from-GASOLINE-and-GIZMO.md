@@ -2,7 +2,9 @@
 prev: 
     text: "Deciphering Galaxy Quenching: Insights from the Multiphase Circumgalactic Medium by Zhijie Qu"
     link: "/Colloquium/2024/2024-01-09-Deciphering-Galaxy-Quenching-Insights-from-the-Multiphase-Circumgalactic-Medium-by-Zhijie-Qu"
-next: false
+next: 
+    text: "Galaxy-halo connection and near-field cosmology with numerical and semi-analytic methods"
+    link: "/Colloquium/2024/2024-03-07-Galaxy-halo-connection-and-near-field-cosmology-with-numerical-and-semi-analytic-methods"
 ---
 # NIHAO-GIZMO: A Comparison of Simulated Disc Galaxies from GASOLINE and GIZMO
 

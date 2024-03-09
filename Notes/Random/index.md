@@ -11,3 +11,5 @@ next: false  # TBD
 ## [Electromagnetic Spectrum](Electromagnetic-Spectrum.md)
 
 ## [Reverberation Mapping](Reverberation-Mapping.md)
+
+## [Cartoon in Astronomy](Cartoon-Astronomy.md)

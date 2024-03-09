@@ -2,7 +2,9 @@
 prev: 
     text: "Why CSST under/over-estimated some photon z"
     link: "/Notes/Random/CSST-Photon-z"
-next: false
+next: 
+    text: "Electromagnetic Spectrum"
+    link: "/Notes/Random/Electromagnetic-Spectrum"
 ---
 # BAO and RSD
 

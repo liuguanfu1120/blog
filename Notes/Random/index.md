@@ -12,4 +12,4 @@ next: false  # TBD
 
 ## [Reverberation Mapping](Reverberation-Mapping.md)
 
-## [Cartoon in Astronomy](Cartoon-Astronomy.md)
+## [Schematics of Astronomy](Schematics-Astronomy.md)

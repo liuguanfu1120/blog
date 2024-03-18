@@ -18,3 +18,5 @@ next: false
 
 
 ## [2024-03-14, A hydrodynamic study of the atmospheric escape of the hot Jupiter WASP-121b](2024-03-14-A-hydrodynamic-study-of-the-atmospheric-escape-of-the-hot-Jupiter-WASP-121b.md)
+
+## [2024-03-15, Revealing the Dynamic Universe](2024-03-15-Revealing-the-Dynamic-Universe.md)

@@ -11,3 +11,5 @@ next: false
 ## [Corrected AIC for X-ray model fitting](Corrected-AIC-for-X-ray-model-fitting.md)
 
 ## [C-statistics](C-statistics.md)
+
+## [Why use log-normal distribution](Why-LogNorm.md)

@@ -2,7 +2,9 @@
 prev: 
     text: "Corrected AIC for X-ray model fitting"
     link: "/Notes/X-ray-Observations/Corrected-AIC-for-X-ray-model-fitting"
-next: false
+next: 
+    text: "Why use log-normal distribution"
+    link: "/Notes/X-ray-Observations/Why-LogNorm"
 ---
 # Some essential notes on C-statistics
 
